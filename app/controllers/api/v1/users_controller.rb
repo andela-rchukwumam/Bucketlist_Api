@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
   respond_to :json, :xml
 
   def create
-    @user = User.new(user_params) if user_params
+    @user = User.create(user_params) if user_params
     if @user.save
       token = Api::AuthToken.encode(user: @user.id)
       render json: @user, meta: { token: token }, status: 201
