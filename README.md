@@ -1,28 +1,97 @@
-== README
+## Description
+This is an API for a bucket list service. Specification for the API is shown below.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## End Points Functionalities
+|End Point| Function  |
+|---------------------|:----:|
+|**POST /auth/login:** |Logs a user in
+| **GET /auth/logout:**| Logs a user out
+| **POST /lists:**| Creates a new bucket list
+| **GET /lists:**| Lists all the created bucket lists
+|**GET /lists/(id):**| Gets a single bucket list
+| **PUT /lists/(id):** |Updates this single bucket list
+| **DELETE /lists/(id):**| Deletes this single bucket list
+| **POST /lists/(id)/items:** |Creates a new item in bucket list
+|**PUT /lists/(id)/items/(item_id):**| Updates a bucket list item
+|**DELETE /lists/(id)/items/(item_id):**| Deletes an item in a bucket list
 
-Things you may want to cover:
+## Data Model
+ The JSON data model for a bucket list and a bucket list item is shown below.
 
-* Ruby version
+```
+{
+  id: 1,
+  name: “BucketList1”,
+  date_created: “2015-08-12 11:57:23”,
+  date_modified: “2015-08-12 11:57:23”
+  created_by: “Owner's Name”
+    items: [
+         {
+               id: 1,
+               name: “I need to do X”,
+               date_created: “2015-08-12 11:57:23”,
+               date_modified: “2015-08-12 11:57:23”,
+               done: False
+             }
+           ]
+}
+```
 
-* System dependencies
+## Authentication
+Json Web Tokens(JWT), Token Based System was used for this API. With this, some end points are not accessible to unauthenticated users. Access control mapping is listed below.
 
-* Configuration
+### End Point and Public Access
+|End Point| Publicity  |
+|---------------------|:----:|
+|**POST /auth/login:**| TRUE |
+| **GET /auth/logout:**| FALSE|
+| **POST /lists:**| FALSE|
+| **GET /lists:**| FALSE|
+| **GET /lists/(id):**| FALSE|
+| **PUT /lists/(id):**| FALSE|
+| **DELETE /lists/(id):**| FALSE |
+|**POST /lists/(id)/items:**|  FALSE|
+| **PUT /lists/(id)/items/(item_id):**| FALSE|
+| **DELETE /lists/(id)/items/(item_id):**| FALSE|
 
-* Database creation
+## Pagination
+This API is paginated such that users can specify the number of results they would like to have via a `GET parameter` `limit`.
 
-* Database initialization
+#### Example
 
-* How to run the test suite
+**Request:**
+```
+GET https://ruth-list.herokuapp.com/api/v1/lists?page=2&limit=20
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+**Response:**
+```
+20 bucket list records belonging to the logged in user starting from the 21st bucket list .
+```
 
-* Deployment instructions
+  ## Searching by Name
+  Users can search for bucket list by its name using a `GET parameter` `q`.
+  #### Example
 
-* ...
+  **Request:**
+  ```
+  GET https://ruth-list.herokuapp.com/api/v1/lists?q=bucket1
+  ```
 
+  **Response:**
+  ```
+  Bucket lists with the string “bucket1” in their name.
+  ```
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## Versions
+This API has only one version for now, and it can be accessed via -
+```
+https://ruth-list.herokuapp.com/api/v1/endpoint
+```
+
+## API URI
+ This API is currently hosted on:
+ [https://ruth-list.herokuapp.com/](https://ruth-list.herokuapp.com/)
+
+## Contributions
+ This API is open source and contributions are welcomed. You can clone the [Github](https://github.com/andela-rchukwumam/Bucketlist) repository and raise a `pull request` for your contributions.  
