@@ -8,8 +8,8 @@ module Api
     def self.decode(token)
       begin
         decoded = JWT.decode(token, Rails.application.secrets.secret_key_base)
-        HashWithIndifferentAccess.new(decoded[0])
-      rescue
+        decoded[0]
+      rescue JWT::ExpiredSignature
       end
     end
   end
