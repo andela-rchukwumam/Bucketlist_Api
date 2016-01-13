@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
     token = request.env["HTTP_AUTHORIZATION"]
     package = Api::AuthToken.decode(token)
     if !package.nil?
-      user_id = package.first[1]
+      user_id = package.last["user"]
       @current_user = User.find_by_id(user_id)
     end
     unless current_user
