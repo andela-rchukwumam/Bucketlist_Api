@@ -8,6 +8,7 @@ gem 'jwt', '~> 1.5'
 gem 'pry'
 gem 'pry-rails'
 gem 'pg'
+gem 'rails_12factor'
 
 gem 'spring', :group => :development
 
