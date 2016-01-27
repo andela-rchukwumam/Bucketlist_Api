@@ -4,6 +4,6 @@ class List < ActiveRecord::Base
   validates :name, presence: true, length: { minimum: 3 }
 
   def self.search(query)
-    where("name LIKE ?", "%#{query}%")
+    where("name ILIKE ?", "%#{query}%")
   end
 end
