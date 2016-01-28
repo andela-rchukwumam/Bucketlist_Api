@@ -61,7 +61,7 @@ This API is paginated such that users can specify the number of results they wou
 
 **Request:**
 ```
-GET https://ruth-list.herokuapp.com/api/v1/lists?page=2&limit=20
+GET https://ruth-lists-api.herokuapp.com/api/v1/lists?page=2&limit=20
 ```
 
 **Response:**
@@ -75,7 +75,7 @@ GET https://ruth-list.herokuapp.com/api/v1/lists?page=2&limit=20
 
   **Request:**
   ```
-  GET https://ruth-list.herokuapp.com/api/v1/lists?q=bucket1
+  GET https://ruth-lists-api.herokuapp.com/api/v1/lists?q=bucket1
   ```
 
   **Response:**
@@ -84,14 +84,11 @@ GET https://ruth-list.herokuapp.com/api/v1/lists?page=2&limit=20
   ```
 
 ## Versions
-This API has only one version for now, and it can be accessed via -
-```
-https://ruth-list.herokuapp.com/api/v1/endpoint
-```
+This API has only one version for now
 
 ## API URI
  This API is currently hosted on:
- [https://ruth-list.herokuapp.com/](https://ruth-list.herokuapp.com/)
+ [https://ruth-lists-api.herokuapp.com/](https://ruth-list.herokuapp.com/)
 
 ## Contributions
- This API is open source and contributions are welcomed. You can clone the [Github](https://github.com/andela-rchukwumam/Bucketlist) repository and raise a `pull request` for your contributions.  
+ This API is open source and contributions are welcomed. You can clone the [Github](https://github.com/andela-rchukwumam/Bucketlist_Api) repository and raise a `pull request` for your contributions.  
