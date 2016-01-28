@@ -1,3 +1,6 @@
+[![Code Climate](https://codeclimate.com/github/andela-rchukwumam/Bucketlist_Api/badges/gpa.svg)](https://codeclimate.com/github/andela-rchukwumam/Bucketlist_Api)
+[![Coverage Status](https://coveralls.io/repos/github/andela-rchukwumam/Bucketlist_Api/badge.svg?branch=master)](https://coveralls.io/github/andela-rchukwumam/Bucketlist_Api?branch=master)
+
 ## Description
 This is an API for a bucket list service. Specification for the API is shown below.
 
