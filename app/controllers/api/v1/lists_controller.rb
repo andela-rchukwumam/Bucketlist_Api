@@ -4,11 +4,11 @@ class Api::V1::ListsController < ApplicationController
 
   def index
     if list_params[:q].present?
-      @lists = List.search(list_params[:q])
+      @lists = List.search(list_params[:q].downcase)
     else
       @lists = List.where(user_id: @current_user.id)
     end
-    results = Api::Paginate.new(params[:limit], params[:page]).pagination(@lists) #order by 
+    results = Api::Paginate.new(params[:limit], params[:page]).pagination(@lists)
     render json: results, status: 200
   end
 

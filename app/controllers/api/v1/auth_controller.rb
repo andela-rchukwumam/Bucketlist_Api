@@ -2,7 +2,7 @@ class Api::V1::AuthController < ApplicationController
   before_action :authenticate, except: [:login]
 
   def login
-    user = User.find_by_email(auth_params[:email]) if auth_params
+    user = User.find_by(email: auth_params[:email]) if auth_params
     if user && user.authenticate(auth_params[:password])
       user.session = true
       user.save
