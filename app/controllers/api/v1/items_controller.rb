@@ -8,7 +8,7 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def create
-    @item = @list.items.new(item_params)
+    @item = Item.new(item_params)
     @item.done = false
     if @item.save
       render json: @item, status: 201
@@ -45,6 +45,6 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def item_params
-    params.permit(:name)
+    params.permit(:list_id, :name, :done)
   end
 end
