@@ -90,7 +90,7 @@ This API has only one version for now
 
 ## API URI
  This API is currently hosted on:
- [https://ruth-lists-api.herokuapp.com/](https://ruth-lists-api.herokuapp.com/)
+ [http://ruth-lists-api.herokuapp.com/](http://ruth-lists-api.herokuapp.com/)
 
 ## Contributions
  This API is open source and contributions are welcomed. You can clone the [Github](https://github.com/andela-rchukwumam/Bucketlist_Api) repository and raise a `pull request` for your contributions.  
